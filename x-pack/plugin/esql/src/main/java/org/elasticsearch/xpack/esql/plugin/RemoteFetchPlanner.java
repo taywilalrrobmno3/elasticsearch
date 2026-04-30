@@ -109,7 +109,7 @@ final class RemoteFetchPlanner {
             originalPlan.isIntermediateAgg(),
             encodedReductionPlan
         );
-        return Optional.of(new ReductionPlan(nodeReducePlan, updatedDataPlan, LocalPhysicalOptimization.DISABLED));
+        return Optional.of(new ReductionPlan(nodeReducePlan, updatedDataPlan));
     }
 
     private static Optional<PlanningInfo> analyze(

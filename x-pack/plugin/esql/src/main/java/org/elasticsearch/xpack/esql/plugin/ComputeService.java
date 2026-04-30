@@ -230,10 +230,6 @@ public class ComputeService {
         return remoteFetchService;
     }
 
-    FilterPushdownRegistry filterPushdownRegistry() {
-        return filterPushdownRegistry;
-    }
-
     FormatReaderRegistry formatReaderRegistry() {
         return formatReaderRegistry;
     }
@@ -1287,8 +1283,7 @@ public class ComputeService {
         // Just send out everything through a single exchange as a fallback
         ReductionPlan passThroughReduction = new ReductionPlan(
             originalPlan.replaceChild(source),
-            originalPlan,
-            LocalPhysicalOptimization.ENABLED
+            originalPlan
         );
         if (remoteFetchLateMaterialization == false && reduceNodeLateMaterialization == false && runNodeLevelReduction == false) {
             return passThroughReduction;
